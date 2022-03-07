@@ -1,3 +1,11 @@
+# Cell Browser files
+*.tsv
+*.tsv.gz
+*.csv
+*.csv.gz
+*.R
+*.log
+
 # Prerequisites
 *.d
 
