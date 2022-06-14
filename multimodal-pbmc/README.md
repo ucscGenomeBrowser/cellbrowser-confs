@@ -1,3 +1,11 @@
+```
+# Download starting data
+wget https://atlas.fredhutch.org/data/nygc/multimodal/pbmc_multimodal.h5seurat
+
+## Within R ##
+library(Seurat)
+library(SeuratDisk)
+
 hfile <- Connect("multimodal-pbmc.h5Seurat")
 # Export data from h5seurat (requires SeuratDisk package in R):
 #Transcriptomics matrix:
@@ -20,7 +28,7 @@ write.table(as.array(hfile[["reductions/wnn.umap/cell.embeddings"]]), file="sct.
 # Metadata
 write.table(hfile[["meta.data"]], file="meta.tsv", quote=FALSE, sep="\t", col.names=NA, row.names=as.array(hfile[["cell.names"]]))
 
-
+## On the command line ##
 # Output matrices as MTX files, but converted to tsv
 cbTool mtx2tsv ../orig/adt.matrix.mtx ../orig/adt.genes.tsv ../orig/cell.names.tsv exprMatrix.tsv.gz
 cbTool mtx2tsv ../orig/sct.matrix.mtx ../orig/sct.genes.tsv ../orig/cell.names.tsv exprMatrix.tsv.gz
@@ -29,3 +37,4 @@ cbBuild --init
 
 cut -f12 -d$'\t' meta.tsv |sort -u> colors.rgb.csv 
 while read line; do cell=$(echo $line|cut -f1 -d ','); color=$(echo $line |cut -f2 -d ','); echo $cell,$(color-converter $color|cut -f2 -d '>' |tr -d " "); done<colors.rgb.csv > colors.csv
+```
