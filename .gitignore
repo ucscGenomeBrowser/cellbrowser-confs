@@ -5,6 +5,16 @@
 *.csv.gz
 *.R
 *.log
+*.sh
+*.h5ad
+*.h5ad.gz
+*.rds
+*.rds.gz
+*.old
+*.bak
+*.yaml
+*tmp*
+*temp*
 
 # Prerequisites
 *.d
