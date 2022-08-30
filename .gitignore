@@ -3,7 +3,7 @@
 *.tsv.gz
 *.csv
 *.csv.gz
-*.R
+*.R*
 *.log
 *.sh
 *.h5ad
@@ -15,6 +15,12 @@
 *.yaml
 *tmp*
 *temp*
+*jpeg
+*jpg
+*png
+*zip
+*gz
+*html
 
 # Prerequisites
 *.d
